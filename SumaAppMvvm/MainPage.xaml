@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SumaAppMvvm.ViewModels"
+             x:Class="SumaAppMvvm.MainPage">
+
+    <ContentPage.BindingContext>
+        <local:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout>
+        <Entry Placeholder="Ingrese un numero" Text="{Binding Valor_1}" Keyboard="Numeric"/>
+        <Entry Placeholder="Ingrese otro numero" Text="{Binding Valor_2}" Keyboard="Numeric"/>
+
+        <Label Text="{Binding Mensaje_error}" TextColor="Red" IsVisible="{Binding Mensaje_error, Converter={StaticResource StringNotEmptyConverter}}"/>
+
+        <Button Text="Sumar" Command="{Binding SumarCommand}"/>
+        <Label Text="Resultado: " FontSize="Medium"/>
+        <Label Text="{Binding Resultado}" FontSize="Large"/>
+    </VerticalStackLayout>
+
+</ContentPage>
